@@ -27,6 +27,7 @@ CREATE TABLE mascotas(
 
 CREATE TABLE animales(
 	id_animal INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
     piernas INT NOT NULL,
     puede_volar BOOL NOT NULL,
     puede_bucear BOOL NOT NULL
