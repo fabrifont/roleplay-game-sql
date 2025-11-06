@@ -1,0 +1,7 @@
+id_animal,nombre,piernas,puede_volar,puede_bucear
+1,Lobo,4,0,0
+2,Tiburón,0,0,1
+3,Dragón,4,1,0
+4,Grifo,4,1,0
+5,Oso,4,0,0
+6,Halcón,2,1,0

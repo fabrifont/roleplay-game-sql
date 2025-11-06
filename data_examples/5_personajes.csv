@@ -1,0 +1,11 @@
+id_personaje,nombre,apellido,titulo,id_raza,id_clase,id_region
+1,Aldric,Valen,"El destructor de dragones",1,1,1
+2,Elarion,Miriel,"El cazador de brujas",2,3,3
+3,Borin,Martillo,"La fortaleza inmóvil",3,5,3
+4,Sszar,Hissk,"La sombra de los pantanos",4,2,4
+5,Grom,Hacha,"La pesadilla de demonios",5,1,5
+6,Sylvera,Lunasilva,"La susurrante de hojas",2,4,2
+7,Thorgan,Piedra,Rompehierro,3,1,1
+8,Mira,Aeron,"La guardiana del faro",1,3,2
+9,Ulfrik,Sangrehelada,"El vengador helado",1,5,1
+10,Kael,Drakos,"Maestro de llamas",2,2,3
