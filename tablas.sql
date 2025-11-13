@@ -49,6 +49,15 @@ CREATE TABLE razas(
     resistencia VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE log_entrenamiento (
+  id_log INT AUTO_INCREMENT PRIMARY KEY,
+  id_personaje INT NOT NULL,
+  campo_modificado VARCHAR(50),
+  valor_anterior INT,
+  valor_nuevo INT,
+  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 ALTER TABLE personajes
 ADD CONSTRAINT fk_personaje_raza
 FOREIGN KEY (id_raza) REFERENCES razas (id_raza);
@@ -66,4 +75,6 @@ ALTER TABLE mascotas
 ADD CONSTRAINT fk_mascota_personaje
 FOREIGN KEY (id_personaje) REFERENCES personajes (id_personaje);
 
-
+ALTER TABLE log_entrenamiento
+ADD CONSTRAINT fk_personaje_log
+FOREIGN KEY (id_personaje) REFERENCES personajes (id_personaje);
