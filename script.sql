@@ -39,6 +39,76 @@ WHERE p.rol = "Daño";
 
 # -------------- Creación de stored procedures --------------
 
+DELIMITER //
 
+CREATE PROCEDURE entrenar_ataque(p_id_personaje INT)
+BEGIN
+	UPDATE personajes
+    SET ataque = ataque + 5
+    WHERE id_personaje = p_id_personaje;
+END //
+
+CREATE PROCEDURE entrenar_defensa(p_id_personaje INT)
+BEGIN
+	UPDATE personajes
+    SET defensa = defensa + 5
+    WHERE id_personaje = p_id_personaje;
+END //
+
+CREATE PROCEDURE entrenar_salud(p_id_personaje INT)
+BEGIN
+	UPDATE personajes
+    SET salud = salud + 5
+    WHERE id_personaje = p_id_personaje;
+END //
+
+CREATE PROCEDURE entrenar_velocidad(p_id_personaje INT)
+BEGIN
+	UPDATE personajes
+    SET velocidad = velocidad + 5
+    WHERE id_personaje = p_id_personaje;
+END //
+
+CREATE PROCEDURE entrenar_fortaleza(IN p_id_personaje INT)
+BEGIN
+  DECLARE a INT; DECLARE d INT; DECLARE s INT; DECLARE v INT;
+  
+  SELECT ataque, defensa, salud, velocidad
+    INTO a, d, s, v
+  FROM personajes
+  WHERE id_personaje = p_id_personaje
+  FOR UPDATE;
+
+  IF a >= d AND a >= s AND a >= v THEN
+    CALL entrenar_ataque(p_id_personaje);
+  ELSEIF d >= a AND d >= s AND d >= v THEN
+    CALL entrenar_defensa(p_id_personaje);
+  ELSEIF s >= a AND s >= d AND s >= v THEN
+    CALL entrenar_salud(p_id_personaje);
+  ELSE
+    CALL entrenar_velocidad(p_id_personaje);
+  END IF;
+END //
+
+CREATE PROCEDURE entrenar_debilidad(p_id_personaje INT)
+BEGIN
+DECLARE a INT; DECLARE d INT; DECLARE s INT; DECLARE v INT;
+  
+  SELECT ataque, defensa, salud, velocidad
+    INTO a, d, s, v
+  FROM personajes
+  WHERE id_personaje = p_id_personaje
+  FOR UPDATE;
+
+  IF a <= d AND a <= s AND a <= v THEN
+    CALL entrenar_ataque(p_id_personaje);
+  ELSEIF d <= a AND d <= s AND d <= v THEN
+    CALL entrenar_defensa(p_id_personaje);
+  ELSEIF s <= a AND s <= d AND s <= v THEN
+    CALL entrenar_salud(p_id_personaje);
+  ELSE
+    CALL entrenar_velocidad(p_id_personaje);
+  END IF;
+END //
 
 # -------------- Creación de triggers --------------
