@@ -8,7 +8,11 @@ CREATE TABLE personajes(
     titulo VARCHAR(50),
     id_raza INT NOT NULL,
     id_clase INT NOT NULL,
-    id_region INT NOT NULL
+    id_region INT NOT NULL,
+    ataque INT NOT NULL,
+    defensa INT NOT NULL,
+    salud INT NOT NULL,
+    velocidad INT NOT NULL
 );
 
 CREATE TABLE clases(
