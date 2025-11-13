@@ -1,6 +1,6 @@
 id_mascota,id_animal,id_personaje,nombre_mascota
-1,1,1,Fang
-2,6,2,Ala
-3,5,3,Garra
-4,3,4,Escama
-5,4,5,Rompe
+NULL,1,1,Fang
+NULL,6,2,Ala
+NULL,5,3,Garra
+NULL,3,4,Escama
+NULL,4,5,Rompe

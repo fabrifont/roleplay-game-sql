@@ -1,6 +1,6 @@
 id_region,nombre_region,clima
-1,Borealheim,Frío
-2,Costa de Icaro,Marítimo
-3,Montañas de Khaz,Alpino
-4,Pantanos de Nifl,Húmedo
-5,Llanuras de Aster,Seco
+NULL,Borealheim,Frío
+NULL,Costa de Icaro,Marítimo
+NULL,Montañas de Khaz,Alpino
+NULL,Pantanos de Nifl,Húmedo
+NULL,Llanuras de Aster,Seco
