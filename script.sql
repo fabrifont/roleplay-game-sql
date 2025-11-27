@@ -288,3 +288,13 @@ BEGIN
     DELETE FROM inventarios WHERE id_log_inventario = NEW.id_log_inventario;
   END IF;
 END //
+
+DELIMITER ;
+
+CREATE USER 'visitante'@'localhost' IDENTIFIED BY 'visitante';
+CREATE USER 'moderador'@'localhost' IDENTIFIED BY 'moderador!321321';
+CREATE USER 'administrador'@'localhost' IDENTIFIED BY 'administrador!98323';
+
+GRANT SELECT ON rolMedievalBD.* TO 'visitante'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON rolMedievalBD.* TO 'moderador'@'localhost';
+GRANT ALL ON rolMedievalBD.* TO 'administrador'@'localhost';
