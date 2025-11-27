@@ -4,3 +4,18 @@ NULL,Mago,Daño,Bola de fuego
 NULL,Arquero,Daño,Disparo certero
 NULL,Clérigo,Soporte,Santidad curativa
 NULL,Paladín,Defensa,Guardia sagrada
+NULL,Bárbaro,Daño,Furia descontrolada
+NULL,Asesino,Daño,Golpe sombrío
+NULL,Brujo,Daño,Maldición abisal
+NULL,Druida,Soporte,Raíces curativas
+NULL,Bardo,Soporte,Canción inspiradora
+NULL,Monje,Defensa,Mantra de resistencia
+NULL,Caballero,Defensa,Muro de acero
+NULL,Nigromante,Daño,Invocar esqueleto
+NULL,Hechicero,Daño,Tormenta arcana
+NULL,Chamán,Soporte,Totem espiritual
+NULL,Alquimista,Soporte,Mezcla reforzante
+NULL,Ladrón,Daño,Ataque furtivo
+NULL,Templario,Defensa,Barrera divina
+NULL,Cazador,Daño,Trampa de espinas
+NULL,Ilusionista,Soporte,Espejo ilusorio
