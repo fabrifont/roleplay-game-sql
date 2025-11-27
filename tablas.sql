@@ -63,7 +63,7 @@ CREATE TABLE log_entrenamiento (
 CREATE TABLE jugadores (
     id_jugador INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(20) NOT NULL UNIQUE,
-    contrasenia VARCHAR(50) NOT NULL,
+    clave VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     id_personaje INT NOT NULL
 );
