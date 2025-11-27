@@ -1,5 +1,5 @@
 id_mision,nombre_mision,nivel_minimo,id_objeto_recompensa,cantidad_recompensa
-NULL,Cazar al jabalí salvaje,1,4,3
+NULL,Cazar al jabali salvaje,1,4,3
 NULL,Recuperar la gema perdida,5,19,1
 NULL,Ayudar al granjero herido,1,1,2
 NULL,Explorar la cueva oscura,3,3,1

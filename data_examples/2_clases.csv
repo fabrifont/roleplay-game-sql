@@ -1,21 +1,21 @@
 id_clase,nombre_clase,rol,habilidad
-NULL,Guerrero,Daño,Embate poderoso
-NULL,Mago,Daño,Bola de fuego
-NULL,Arquero,Daño,Disparo certero
-NULL,Clérigo,Soporte,Santidad curativa
-NULL,Paladín,Defensa,Guardia sagrada
-NULL,Ladrón,Daño,Ataque furtivo
-NULL,Bárbaro,Daño,Furia descontrolada
-NULL,Asesino,Daño,Golpe sombrío
-NULL,Brujo,Daño,Maldición abisal
-NULL,Druida,Soporte,Raíces curativas
-NULL,Bardo,Soporte,Canción inspiradora
+NULL,Guerrero,Danio,Embate poderoso
+NULL,Mago,Danio,Bola de fuego
+NULL,Arquero,Danio,Disparo certero
+NULL,Clerigo,Soporte,Santidad curativa
+NULL,Paladin,Defensa,Guardia sagrada
+NULL,Ladron,Danio,Ataque furtivo
+NULL,Barbaro,Danio,Furia descontrolada
+NULL,Asesino,Danio,Golpe sombrio
+NULL,Brujo,Danio,Maldicion abisal
+NULL,Druida,Soporte,Raices curativas
+NULL,Bardo,Soporte,Cancion inspiradora
 NULL,Monje,Defensa,Mantra de resistencia
 NULL,Caballero,Defensa,Muro de acero
-NULL,Nigromante,Daño,Invocar esqueleto
-NULL,Hechicero,Daño,Tormenta arcana
-NULL,Chamán,Soporte,Totem espiritual
+NULL,Nigromante,Danio,Invocar esqueleto
+NULL,Hechicero,Danio,Tormenta arcana
+NULL,Chaman,Soporte,Totem espiritual
 NULL,Alquimista,Soporte,Mezcla reforzante
 NULL,Templario,Defensa,Barrera divina
-NULL,Cazador,Daño,Trampa de espinas
+NULL,Cazador,Danio,Trampa de espinas
 NULL,Ilusionista,Soporte,Espejo ilusorio
