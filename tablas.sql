@@ -80,7 +80,7 @@ CREATE TABLE registro_misiones (
     id_registro_mision INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_mision INT NOT NULL,
     id_personaje INT NOT NULL,
-    fecha_completada DATE NOT NULL
+    fecha_completada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE objetos (
@@ -96,17 +96,6 @@ CREATE TABLE inventarios (
     id_personaje_duenio INT NOT NULL,
     id_objeto INT NOT NULL,
     cantidad INT NOT NULL CHECK (cantidad > 0)
-);
-
-CREATE TABLE log_intercambios (
-    id_intercambio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_personaje_a INT NOT NULL,
-    id_personaje_b INT NOT NULL,
-    id_objeto_a INT NOT NULL,
-    id_objeto_b INT NOT NULL,
-    cantidad_a INT NOT NULL CHECK (cantidad_a > 0),
-    cantidad_b INT NOT NULL CHECK (cantidad_b > 0),
-    fecha_trade DATE NOT NULL
 );
 
 CREATE TABLE tabernas (
@@ -128,10 +117,10 @@ CREATE TABLE gremios (
 );
 
 CREATE TABLE miembros_gremios (
-    id_membresía INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_membresia INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_jugador INT NOT NULL,
     id_gremio INT NOT NULL,
-    fecha_union DATE NOT NULL
+    fecha_union TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 ALTER TABLE personajes
@@ -181,22 +170,6 @@ FOREIGN KEY (id_personaje_duenio) REFERENCES personajes (id_personaje);
 ALTER TABLE inventarios
 ADD CONSTRAINT fk_inventario_objeto
 FOREIGN KEY (id_objeto) REFERENCES objetos (id_objeto);
-
-ALTER TABLE log_intercambios
-ADD CONSTRAINT fk_personaje_a
-FOREIGN KEY (id_personaje_a) REFERENCES personajes (id_personaje);
-
-ALTER TABLE log_intercambios
-ADD CONSTRAINT fk_personaje_b
-FOREIGN KEY (id_personaje_b) REFERENCES personajes (id_personaje);
-
-ALTER TABLE log_intercambios
-ADD CONSTRAINT fk_objeto_a
-FOREIGN KEY (id_objeto_a) REFERENCES objetos (id_objeto);
-
-ALTER TABLE log_intercambios
-ADD CONSTRAINT fk_objeto_b
-FOREIGN KEY (id_objeto_b) REFERENCES objetos (id_objeto);
 
 ALTER TABLE tabernas
 ADD CONSTRAINT fk_taberna_region

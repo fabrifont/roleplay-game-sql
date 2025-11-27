@@ -1,21 +1,21 @@
 id_objeto,nombre_objeto,descripcion_objeto,consumible,valor
-NULL,Frasco de salud,Pequeño frasco que regenera salud al instante,TRUE,50
-NULL,Frasco de mana,Recupera energía mística para lanzar hechizos,TRUE,60
-NULL,Antorcha de hierro,Ilumina cuevas y reduce el miedo, FALSE,10
-NULL,Pan de la aldea,Alimento básico que recupera un poco de salud,TRUE,5
-NULL,Arco corto,Arma ligera para ataques a distancia,FALSE,120
-NULL,Espada larga,Hoja forjada para combatir en primera línea,FALSE,200
-NULL,Escudo de roble,Protección básica contra impactos,FALSE,150
-NULL,Anillo de fuerza,Aumenta ligeramente el ataque del portador,FALSE,300
-NULL,Collar de resistencia,Aumenta la resistencia a venenos,FALSE,280
-NULL,Poción antídoto,Neutraliza venenos y enfermedades,TRUE,45
-NULL,Bolsa de monedas,Bolsa con monedas diversas,FALSE,25
-NULL,Libro de runas,Contiene un hechizo menor,FALSE,180
-NULL,Botas de marcha,Incrementan la velocidad de movimiento,FALSE,140
-NULL,Guantes de armero,Mejoran el manejo de armas,FALSE,95
-NULL,Mapa antiguo,Revela lugares olvidados,FALSE,110
-NULL,Herida de curación mayor,Gran poción de curación,TRUE,120
-NULL,Pluma encantada,Usada para inscripciones mágicas,FALSE,75
-NULL,Capa de sigilo,Ropa que ayuda a pasar desapercibido,FALSE,260
-NULL,Fragmento de gema,Material para forja o comercio,FALSE,60
-NULL,Medalla del gremio,Reconocimiento por servicios,FALSE,400
+NULL,Frasco de salud,Pequeño frasco que regenera salud al instante,1,50
+NULL,Frasco de mana,Recupera energía mística para lanzar hechizos,1,60
+NULL,Antorcha de hierro,Ilumina cuevas y reduce el miedo, 0,10
+NULL,Pan de la aldea,Alimento básico que recupera un poco de salud,1,5
+NULL,Arco corto,Arma ligera para ataques a distancia,0,120
+NULL,Espada larga,Hoja forjada para combatir en primera línea,0,200
+NULL,Escudo de roble,Protección básica contra impactos,0,150
+NULL,Anillo de fuerza,Aumenta ligeramente el ataque del portador,0,300
+NULL,Collar de resistencia,Aumenta la resistencia a venenos,0,280
+NULL,Poción antídoto,Neutraliza venenos y enfermedades,1,45
+NULL,Bolsa de monedas,Bolsa con monedas diversas,0,25
+NULL,Libro de runas,Contiene un hechizo menor,0,180
+NULL,Botas de marcha,Incrementan la velocidad de movimiento,0,140
+NULL,Guantes de armero,Mejoran el manejo de armas,0,95
+NULL,Mapa antiguo,Revela lugares olvidados,0,110
+NULL,Herida de curación mayor,Gran poción de curación,1,120
+NULL,Pluma encantada,Usada para inscripciones mágicas,0,75
+NULL,Capa de sigilo,Ropa que ayuda a pasar desapercibido,0,260
+NULL,Fragmento de gema,Material para forja o comercio,0,60
+NULL,Medalla del gremio,Reconocimiento por servicios,0,400

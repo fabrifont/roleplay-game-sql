@@ -186,6 +186,14 @@ BEGIN
   WHERE i.id_personaje_duenio = p_id_personaje;
 END //
 
+# Muestra las misiones disponibles en la taberna con el ID recibido como parámetro
+CREATE PROCEDURE ver_misiones(p_id_taberna INT)
+BEGIN
+  SELECT m.nombre_mision FROM misiones_por_taberna t
+  JOIN misiones m ON p_id_taberna = t.id_taberna
+  WHERE m.id_mision = t.id_mision;
+END //
+
 # -------------- Creación de triggers --------------
 
 # Cada vez que se modifica una estadística de un personaje, se logea la modificación en la
@@ -232,4 +240,9 @@ BEGIN
 	END IF;
 END //
 
-
+CREATE TRIGGER logear_intercambio
+AFTER UPDATE ON inventarios
+FOR EACH ROW
+BEGIN
+	IF OLD.id_personaje_duenio <> NEW.id_personaje_duenio THEN
+		INSERT ######################################################################################################################################
