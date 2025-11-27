@@ -1,4 +1,4 @@
-id_jugador,username,contrasenia,email,id_personaje
+id_jugador,username,clave,email,id_personaje
 NULL,aldric01,passAldric,aldric@example.com,1
 NULL,elari_on,pa$$Elar,e.elarion@example.com,2
 NULL,bormart,brnTech,borin@example.com,3
