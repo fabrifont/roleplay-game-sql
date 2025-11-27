@@ -50,7 +50,7 @@ CREATE TABLE razas(
 );
 
 CREATE TABLE log_entrenamiento (
-  id_log INT AUTO_INCREMENT PRIMARY KEY,
+  id_log INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_personaje INT NOT NULL,
   campo_modificado VARCHAR(50),
   valor_anterior INT,
@@ -66,7 +66,7 @@ CREATE TABLE jugadores (
     contrasenia VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     id_personaje INT NOT NULL
-)
+);
 
 CREATE TABLE misiones (
     id_mision INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -74,14 +74,14 @@ CREATE TABLE misiones (
     nivel_minimo INT,
     id_objeto_recompensa INT,
     cantidad_recompensa INT
-)
+);
 
 CREATE TABLE registro_misiones (
     id_registro_mision INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_mision INT NOT NULL,
     id_personaje INT NOT NULL,
     fecha_completada DATE NOT NULL
-)
+);
 
 CREATE TABLE objetos (
     id_objeto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -89,14 +89,14 @@ CREATE TABLE objetos (
     descripcion_objeto VARCHAR(150),
     consumible BOOLEAN NOT NULL,
     valor INT NOT NULL
-)
+);
 
 CREATE TABLE inventarios (
     id_log_inventario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_personaje_duenio INT NOT NULL,
     id_objeto INT NOT NULL,
-    cantidad INT NOT NULL UNSIGNED CHECK (cantidad > 0)
-)
+    cantidad INT NOT NULL CHECK (cantidad > 0)
+);
 
 CREATE TABLE log_intercambios (
     id_intercambio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -104,35 +104,35 @@ CREATE TABLE log_intercambios (
     id_personaje_b INT NOT NULL,
     id_objeto_a INT NOT NULL,
     id_objeto_b INT NOT NULL,
-    cantidad_a INT NOT NULL UNSIGNED CHECK (cantidad_a > 0),
-    cantidad_b INT NOT NULL UNSIGNED CHECK (cantidad_b > 0),
+    cantidad_a INT NOT NULL CHECK (cantidad_a > 0),
+    cantidad_b INT NOT NULL CHECK (cantidad_b > 0),
     fecha_trade DATE NOT NULL
-)
+);
 
 CREATE TABLE tabernas (
     id_taberna INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_taberna VARCHAR(100),
     id_region INT NOT NULL
-)
+);
 
 CREATE TABLE misiones_por_taberna (
     id_log_mision_taberna INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_taberna INT NOT NULL,
     id_mision INT NOT NULL
-)
+);
 
 CREATE TABLE gremios (
     id_gremio INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_gremio VARCHAR(50) NOT NULL UNIQUE,
     id_jugador_propietario INT NOT NULL
-)
+);
 
 CREATE TABLE miembros_gremios (
     id_membresía INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_jugador INT NOT NULL,
     id_gremio INT NOT NULL,
     fecha_union DATE NOT NULL
-)
+);
 
 ALTER TABLE personajes
 ADD CONSTRAINT fk_personaje_raza
@@ -192,11 +192,11 @@ FOREIGN KEY (id_personaje_b) REFERENCES personajes (id_personaje);
 
 ALTER TABLE log_intercambios
 ADD CONSTRAINT fk_objeto_a
-FOREIGN KEY (id_objeto_a) REFERENCES objetos (id_objetos);
+FOREIGN KEY (id_objeto_a) REFERENCES objetos (id_objeto);
 
 ALTER TABLE log_intercambios
 ADD CONSTRAINT fk_objeto_b
-FOREIGN KEY (id_objeto_b) REFERENCES objetos (id_objetos);
+FOREIGN KEY (id_objeto_b) REFERENCES objetos (id_objeto);
 
 ALTER TABLE tabernas
 ADD CONSTRAINT fk_taberna_region

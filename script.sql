@@ -178,6 +178,14 @@ DECLARE a INT; DECLARE d INT; DECLARE s INT; DECLARE v INT;
   END IF;
 END //
 
+# Muestra el inventario del personaje con el ID recibido como parámetro
+CREATE PROCEDURE ver_inventario(p_id_personaje INT)
+BEGIN
+  SELECT o.nombre_objeto, i.cantidad
+  FROM inventarios i JOIN objetos o ON i.id_objeto = o.id_objeto
+  WHERE i.id_personaje_duenio = p_id_personaje;
+END //
+
 # -------------- Creación de triggers --------------
 
 # Cada vez que se modifica una estadística de un personaje, se logea la modificación en la
