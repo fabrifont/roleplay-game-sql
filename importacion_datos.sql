@@ -118,15 +118,7 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (id_log_inventario, id_personaje_duenio, id_objeto, cantidad);
 
-LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/16_log_intercambios.csv'
-INTO TABLE log_intercambios
-FIELDS TERMINATED BY ','
-OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 LINES
-(id_intercambio, id_personaje_a, id_personaje_b, id_objeto_a, id_objeto_b, cantidad_a, cantidad_b, fecha_trade);
-
-LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/17_log_entrenamiento.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/16_log_entrenamiento.csv'
 INTO TABLE log_entrenamiento
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
