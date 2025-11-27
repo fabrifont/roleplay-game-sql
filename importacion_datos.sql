@@ -125,3 +125,5 @@ OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (id_log, id_personaje, campo_modificado, valor_anterior, valor_nuevo, fecha);
+
+SELECT * FROM detalle_personajes;
