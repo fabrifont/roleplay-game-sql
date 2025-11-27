@@ -171,6 +171,9 @@ ALTER TABLE inventarios
 ADD CONSTRAINT fk_inventario_objeto
 FOREIGN KEY (id_objeto) REFERENCES objetos (id_objeto);
 
+ALTER TABLE inventarios
+ADD UNIQUE KEY ux_persona_objeto (id_personaje_duenio, id_objeto);
+
 ALTER TABLE tabernas
 ADD CONSTRAINT fk_taberna_region
 FOREIGN KEY (id_region) REFERENCES regiones (id_region);

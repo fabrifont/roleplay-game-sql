@@ -62,7 +62,7 @@ CREATE VIEW tiene_dragon AS
 SELECT p.id_personaje, p.nombre, p.apellido FROM personajes p
 JOIN mascotas m ON p.id_personaje = m.id_personaje
 JOIN animales a ON m.id_animal = a.id_animal
-WHERE a.nombre = "Dragón";
+WHERE a.nombre = "Dragon";
 
 # Sirve para ver un listado de las mascotas que pueden volar, y sus respectivos dueños.
 # Muestra datos de las tablas personajes y mascotas, trabaja también con animales.
@@ -75,12 +75,12 @@ WHERE puede_volar IS TRUE;
 
 # Permite ver una lista de los personajes cuyo rol es de Daño y tienen una mascota, trabaja
 # con las tablas personajes, mascotas y animales
-CREATE VIEW daños_con_montura AS
+CREATE VIEW danios_con_montura AS
 SELECT p.id_personaje, p.nombre, p.apellido, p.nombre_clase, m.nombre_mascota, a.nombre AS animal
 FROM detalle_personajes p 
 JOIN mascotas m ON p.id_personaje = m.id_personaje
 JOIN animales a ON m.id_animal = a.id_animal
-WHERE p.rol = "Daño";
+WHERE p.rol = "Danio";
 
 # Muestra una lista de los personajes junto a su puntuación (promedio de las cuatro
 # estadísticas), y ordena los registros en función de ese campo, de manera descendente.
@@ -91,6 +91,13 @@ SELECT p.id_personaje, p.nombre, p.apellido, c.nombre_clase, promedio_estadistic
 FROM personajes p
 JOIN clases c ON p.id_clase = c.id_clase
 ORDER BY puntuacion DESC;
+
+# Muestra los inventarios, pero con nombres de personajes y objetos
+CREATE VIEW inventarios_extendido AS
+SELECT p.nombre, o.nombre_objeto, i.cantidad FROM personajes p 
+JOIN inventarios i ON p.id_personaje = i.id_personaje_duenio
+JOIN objetos o ON o.id_objeto = i.id_objeto
+ORDER BY p.nombre ASC;
 
 # -------------- Creación de stored procedures --------------
 
@@ -194,6 +201,39 @@ BEGIN
   WHERE m.id_mision = t.id_mision;
 END //
 
+# Recibe un log de inventario, un personaje destino y una cantidad.
+# Si es posible, envía esa cantidad de objetos al personaje destino.
+CREATE PROCEDURE enviar_objetos(p_id_log_inventario INT, p_id_personaje_destino INT, p_cantidad INT)
+BEGIN
+  DECLARE cantidad_actual INT;
+  DECLARE objeto_a_enviar INT;
+  DECLARE cantidad_destino INT;
+  START TRANSACTION;
+
+  SELECT cantidad, id_objeto INTO cantidad_actual, objeto_a_enviar FROM inventarios
+  WHERE p_id_log_inventario = id_log_inventario
+  FOR UPDATE;
+
+  SELECT cantidad INTO cantidad_destino FROM inventarios
+  WHERE p_id_personaje_destino = id_personaje_duenio AND
+  id_objeto = objeto_a_enviar
+  FOR UPDATE;
+
+  IF p_cantidad > cantidad_actual THEN
+    ROLLBACK;
+  ELSEIF p_cantidad = cantidad_actual THEN
+    DELETE FROM inventarios WHERE id_log_inventario = p_id_log_inventario;
+  ELSE
+    UPDATE inventarios SET cantidad = cantidad_actual - p_cantidad
+    WHERE p_id_log_inventario = id_log_inventario;
+    
+  END IF;
+  INSERT INTO inventarios (id_log_inventario, id_personaje_duenio, id_objeto, cantidad)
+  VALUES (NULL, p_id_personaje_destino, objeto_a_enviar, p_cantidad)
+  ON DUPLICATE KEY UPDATE cantidad = cantidad + VALUES(cantidad);
+  COMMIT;
+END //
+
 # -------------- Creación de triggers --------------
 
 # Cada vez que se modifica una estadística de un personaje, se logea la modificación en la
@@ -240,9 +280,11 @@ BEGIN
 	END IF;
 END //
 
-CREATE TRIGGER logear_intercambio
+CREATE TRIGGER limpiar_registros_vacios_inventario
 AFTER UPDATE ON inventarios
 FOR EACH ROW
 BEGIN
-	IF OLD.id_personaje_duenio <> NEW.id_personaje_duenio THEN
-		INSERT ######################################################################################################################################
+  IF NEW.cantidad < 1 THEN
+    DELETE FROM inventarios WHERE id_log_inventario = NEW.id_log_inventario;
+  END IF;
+END //
