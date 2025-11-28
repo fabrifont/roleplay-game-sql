@@ -1,7 +1,7 @@
 id_animal,nombre,piernas,puede_volar,puede_bucear
 NULL,Lobo,4,0,0
-NULL,Tiburón,0,0,1
-NULL,Dragón,4,1,0
+NULL,Tiburon,0,0,1
+NULL,Dragon,4,1,0
 NULL,Grifo,4,1,0
 NULL,Oso,4,0,0
-NULL,Halcón,2,1,0
+NULL,Halcon,2,1,0
